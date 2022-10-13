@@ -27,10 +27,8 @@ View::View(int argc, char *argv[]) :
         std::runtime_error("Too few arguments");
     }
 
-    std::cout << "I am here 1" << std::endl;
     if(false == std::filesystem::exists(std::filesystem::path(argv[INDEX_OF_INPUT_DIR])))
     {
-        std::cout << "I am here 2" << std::endl;
         std::runtime_error("Input directory is not exist");
     }
 

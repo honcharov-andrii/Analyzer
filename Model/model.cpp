@@ -72,4 +72,9 @@ void Model::packTar(const std::string & pathToFolder, const std::string & pathFo
     }
 }
 
+void Model::removeFolder(const std::string & pathToFolder)
+{
+    std::filesystem::remove_all(pathToFolder);
+}
+
 }

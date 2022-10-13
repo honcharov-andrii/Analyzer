@@ -8,9 +8,9 @@ if (USE_TEST)
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
-set(SOURCE_FILES "controller.cpp")
-set(HEADER_FILES "controller.hpp")
+#set(SOURCE_FILES "controller.cpp")
+#set(HEADER_FILES "controller.hpp")
 
-add_library(Controller STATIC ${HEADER_FILES} ${SOURCE_FILES})
+add_library(Controller STATIC controller.hpp controller.cpp imodel.hpp)
 target_include_directories(Controller PUBLIC ${CMAKE_CURRENT_LIST_DIR})
-target_link_libraries(Controller PUBLIC Model)
+#target_link_libraries(Controller PUBLIC Model)

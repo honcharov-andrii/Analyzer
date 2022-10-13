@@ -1,7 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "model.hpp"
+#include "imodel.hpp"
 
 #include <filesystem>
 #include <queue>
@@ -18,7 +18,7 @@ public:
                const std::string & inputDirectory,
                const std::string & outputDirectory,
                const std::set<std::string> & dataForExport,
-               Model & model);
+               IModel & model);
     ~Controller() = default;
     void start();
 private:
@@ -28,7 +28,7 @@ private:
     std::string                     mOutputDirectory;
     std::set<std::string>           mDataForExport;
     std::filesystem::file_time_type mLastTime;
-    Model &                         mModel;
+    IModel &                        mModel;
 };
 
 }

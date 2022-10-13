@@ -12,7 +12,7 @@ Controller::Controller(const std::string & serviceName,
                        const std::string & inputDirectory,
                        const std::string & outputDirectory,
                        const std::set<std::string> & dataForExport,
-                       Model & model) :
+                       IModel & model) :
     mServiceName{serviceName},
     mInputDirectory{inputDirectory},
     mOutputDirectory{outputDirectory},
@@ -38,7 +38,7 @@ void Controller::start()
             std::string pathToDirForArchive = mModel.createFolderForArchive(mOutputDirectory, mDataForExport);
             std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
             mModel.packTar(pathToDirForArchive, mOutputDirectory + "/" + std::to_string(ms.count()));
-            std::filesystem::remove_all(pathToDirForArchive);
+            mModel.removeFolder(pathToDirForArchive);
         }
         std::this_thread::yield();
 #ifdef UNIT_TEST
